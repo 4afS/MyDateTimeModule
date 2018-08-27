@@ -9,7 +9,7 @@ class DateTime a where
 
 data DTime = Time Int Int 
           | Date Int Int Int
-    deriving (Show, Eq, Ord)
+          deriving (Show, Eq, Ord)
 
 instance DateTime DTime where 
     showDTime = showDTime' . format 
