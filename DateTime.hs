@@ -3,7 +3,7 @@ module DateTime (DateTime(..), DTime(Time, Date), toTime, format) where
 import Data.Char
 
 class DateTime a where 
-    showDT :: a -> String
+    showDTime :: a -> String
     (<->) :: a -> a -> a 
     (<+>) :: a -> a -> a 
 
@@ -12,9 +12,9 @@ data DTime = Time Int Int
     deriving (Show, Eq, Ord)
 
 instance DateTime DTime where 
-    showDT = showDT' . format 
+    showDTime = showDTime' . format 
         where 
-            showDT' (Time a b) = show a ++ ":" ++ show b
+            showDTime' (Time a b) = show a ++ ":" ++ show b
 
     (Time a b) <+> (Time c d) = format $ uncurry Time added
         where 
